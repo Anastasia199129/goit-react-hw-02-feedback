@@ -1,6 +1,6 @@
-// import './App.css';
+import './App.css';
 import Statistics from './components/statistics/Statistics';
-import Buttons from './components/buttons/Buttons';
+import FeedbackOptions from './components/feedbackOptions/FeedbackOptions';
 import { Component } from 'react';
 
 class App extends Component {
@@ -9,27 +9,33 @@ class App extends Component {
     neutral: 0,
     bad: 0,
   };
-  GoodIncrement = () => {
-    this.setState(prevState => {
-      return {
-        good: prevState.good + 1,
-      };
-    });
+
+  onButtonIncrement = e => {
+    this.setState(prevState => ({
+      [e.target.name]: prevState[e.target.name] + 1,
+    }));
   };
-  NeutralIncrement = () => {
-    this.setState(prevState => {
-      return {
-        neutral: prevState.neutral + 1,
-      };
-    });
-  };
-  BadIncrement = () => {
-    this.setState(prevState => {
-      return {
-        bad: prevState.bad + 1,
-      };
-    });
-  };
+  // GoodIncrement = () => {
+  //   this.setState(prevState => {
+  //     return {
+  //       good: prevState.good + 1,
+  //     };
+  //   });
+  // };
+  // NeutralIncrement = () => {
+  //   this.setState(prevState => {
+  //     return {
+  //       neutral: prevState.neutral + 1,
+  //     };
+  //   });
+  // };
+  // BadIncrement = () => {
+  //   this.setState(prevState => {
+  //     return {
+  //       bad: prevState.bad + 1,
+  //     };
+  //   });
+  // };
   countTotalFeedback = () => {
     return this.state.good + this.state.neutral + this.state.bad;
   };
@@ -43,11 +49,12 @@ class App extends Component {
     return (
       <div>
         <h1>Please leave feedback </h1>
-        <Buttons
-          goodIncrement={this.GoodIncrement}
-          neutralIncrement={this.NeutralIncrement}
-          badIncrement={this.BadIncrement}
-        ></Buttons>
+        <FeedbackOptions
+          onButtonIncrement={this.onButtonIncrement}
+          // goodIncrement={this.GoodIncrement}
+          // neutralIncrement={this.NeutralIncrement}
+          // badIncrement={this.BadIncrement}
+        ></FeedbackOptions>
 
         <h2>Statistics</h2>
 
