@@ -1,19 +1,25 @@
-import React from "react"
+import PropTypes from 'prop-types'
+import styles from './feedbackOptions.module.css';
 
 
     
-const FeedbackOptions = ({onButtonIncrement}) => {
-      return ( <div>
-          <button type="button" name="good" onClick={onButtonIncrement}>
+const FeedbackOptions = ({ onButtonIncrement }) => {
+    return (<div className={styles.conteiner}>
+          <button className={styles.button} type="button" name="good" onClick={onButtonIncrement}>
             Good
           </button>
-          <button type="button" name="neutral" onClick={onButtonIncrement}>
+          <button className={styles.button} type="button" name="neutral" onClick={onButtonIncrement}>
             Neutral
           </button>
-          <button type="button" name="bad" onClick={onButtonIncrement}>
+          <button className={styles.button} type="button" name="bad" onClick={onButtonIncrement}>
             Bad
           </button>
         </div> )
 }
+
+FeedbackOptions.propTypes = {
+   onButtonIncrement: PropTypes.func 
+}
+
 export default FeedbackOptions
     
