@@ -17,27 +17,7 @@ class App extends Component {
       [e.target.name]: prevState[e.target.name] + 1,
     }));
   };
-  // GoodIncrement = () => {
-  //   this.setState(prevState => {
-  //     return {
-  //       good: prevState.good + 1,
-  //     };
-  //   });
-  // };
-  // NeutralIncrement = () => {
-  //   this.setState(prevState => {
-  //     return {
-  //       neutral: prevState.neutral + 1,
-  //     };
-  //   });
-  // };
-  // BadIncrement = () => {
-  //   this.setState(prevState => {
-  //     return {
-  //       bad: prevState.bad + 1,
-  //     };
-  //   });
-  // };
+
   countTotalFeedback = () => {
     return this.state.good + this.state.neutral + this.state.bad;
   };
@@ -51,12 +31,7 @@ class App extends Component {
     return (
       <div>
         <Section title="Please leave feedback">
-          <FeedbackOptions
-            onButtonIncrement={this.onButtonIncrement}
-            // goodIncrement={this.GoodIncrement}
-            // neutralIncrement={this.NeutralIncrement}
-            // badIncrement={this.BadIncrement}
-          ></FeedbackOptions>
+          <FeedbackOptions onButtonIncrement={this.onButtonIncrement}></FeedbackOptions>
         </Section>
 
         <Section title="Statistics">
@@ -70,7 +45,6 @@ class App extends Component {
             ></Statistics>
           ) : (
             <Notification message="No feedback given"></Notification>
-            // 'No feedback given'
           )}
         </Section>
       </div>
